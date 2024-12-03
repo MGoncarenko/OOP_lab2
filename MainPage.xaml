@@ -1,0 +1,61 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="XMLator.MainPage"
+             BackgroundColor="#F5F5F5">
+
+    <ScrollView>
+        <VerticalStackLayout Padding="30" Spacing="20">
+
+            <!-- Section for selecting parsing method -->
+            <Frame BackgroundColor="#FFFFFF" Padding="20" CornerRadius="10" HasShadow="True">
+                <StackLayout>
+                    <Label Text="Виберіть метод парсингу:" FontSize="20" FontAttributes="Bold" TextColor="#333333"/>
+                    <Picker x:Name="MethodPicker" Title="Метод:"
+                            FontSize="16" TextColor="#0078D4" BackgroundColor="#E1E1E1">
+                        <Picker.Items>
+                            <x:String>SAX</x:String>
+                            <x:String>DOM</x:String>
+                            <x:String>LINQ</x:String>
+                        </Picker.Items>
+                    </Picker>
+                </StackLayout>
+            </Frame>
+
+            <Button Text="Вибрати XML файл"
+                    BackgroundColor="#007ACC"
+                    TextColor="White"
+                    FontAttributes="Bold"
+                    CornerRadius="5"
+                    Clicked="OnSelectFileClicked"/>
+
+            <!-- Dynamic Attributes -->
+            <Frame BackgroundColor="#007ACC" Padding="20" CornerRadius="10" HasShadow="True">
+                <StackLayout>
+                    <Label Text="Атрибути:" FontSize="20" FontAttributes="Bold" TextColor="#333333"/>
+                    <BoxView HeightRequest="1" Color="#CDCDCD" Margin="0,10"/>
+                    <StackLayout x:Name="AttributesStack" Padding="5"/>
+                </StackLayout>
+            </Frame>
+
+            <!-- Results -->
+            <Frame BackgroundColor="#FFFFFF" Padding="20" CornerRadius="10" HasShadow="True">
+                <StackLayout>
+                    <Label Text="Результати:" FontSize="20" FontAttributes="Bold" TextColor="#333333"/>
+                    <Editor x:Name="SearchResults" IsReadOnly="True" HeightRequest="150"
+                            BackgroundColor="#E1E1E1" TextColor="#000000"/>
+                </StackLayout>
+            </Frame>
+
+            <!-- Action Buttons -->
+            <FlexLayout Direction="Row" JustifyContent="SpaceBetween" AlignItems="Center">
+                <Button Text="Трансформувати в HTML" BackgroundColor="#28A745" TextColor="White" CornerRadius="5" Clicked="OnTransformToHtmlClicked"/>
+                <Button Text="Пошук" BackgroundColor="#FFC107" TextColor="White" CornerRadius="5" Clicked="OnSearchClicked"/>
+                <Button Text="Вибрати XSL файл" BackgroundColor="#17A2B8" TextColor="White" CornerRadius="5" Clicked="OnSelectXslFileClicked"/>
+                <Button Text="Очистити" BackgroundColor="#DC3545" TextColor="White" CornerRadius="5" Clicked="OnClearClicked"/>
+            </FlexLayout>
+
+        </VerticalStackLayout>
+    </ScrollView>
+
+</ContentPage>

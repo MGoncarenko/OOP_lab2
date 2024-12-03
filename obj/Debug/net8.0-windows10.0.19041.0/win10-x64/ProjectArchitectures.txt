@@ -1,0 +1,1 @@
+C:\Users\Andrewfour\source\repos\XMLator\XMLator.csproj;x64
